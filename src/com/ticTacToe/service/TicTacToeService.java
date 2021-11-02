@@ -76,6 +76,11 @@ public class TicTacToeService {
                 break;
             }
 
+            if(checkDraw()){
+                System.out.println("Ничья");
+                break;
+            }
+
             if (game.isPvp()) {
                 movePlayer(game.getSymbolSecondPlayer(), game.getMoveSecondPlayer());
             } else {
@@ -129,10 +134,14 @@ public class TicTacToeService {
                 List.of(2, 5, 8),
                 List.of(3, 6, 9),
                 List.of(1, 5, 9),
-                List.of(7, 5, 9));
+                List.of(7, 5, 3));
 
         return winCombinations.stream()
                 .anyMatch(movesPlayer::containsAll);
+    }
+
+    private boolean checkDraw(){
+        return game.getAccessMove().size() == 0;
     }
 
     private void cleanGame() {
