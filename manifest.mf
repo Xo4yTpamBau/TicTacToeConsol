@@ -1,0 +1,2 @@
+main-class: com.ticTacToe.TicTacToe
+class-path: bin/

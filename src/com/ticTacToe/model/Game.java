@@ -1,6 +1,7 @@
 package com.ticTacToe.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Game {
@@ -13,14 +14,8 @@ public class Game {
 
     private int[] score = {0, 0};
 
-    private String nameFirstPlayer;
-    private String nameSecondPlayer;
+    private List<Player> players = List.of(new Player(), new Player());
 
-    private String symbolFirstPlayer;
-    private String symbolSecondPlayer;
-
-    private List<Integer> moveFirstPlayer = new ArrayList<>();
-    private List<Integer> moveSecondPlayer = new ArrayList<>();
     private List<Integer> accessMove = new ArrayList<>(List.of(1,2,3,4,5,6,7,8,9));
 
     private boolean pvp;
@@ -30,16 +25,25 @@ public class Game {
 
     public Game(int[] score,
                 String nameFirstPlayer,
-                String nameSecondPlayer) {
+                String nameSecondPlayer,
+                boolean isPvp) {
         this.score = score;
-        this.nameFirstPlayer = nameFirstPlayer;
-        this.nameSecondPlayer = nameSecondPlayer;
+        players.get(0).setName(nameFirstPlayer);
+        players.get(1).setName(nameSecondPlayer);
+        this.pvp = isPvp;
+    }
+
+    public List<Player> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(List<Player> players) {
+        this.players = players;
     }
 
     public List<Integer> getAccessMove() {
         return accessMove;
     }
-
 
     public void setAccessMove(List<Integer> accessMove) {
         this.accessMove = accessMove;
@@ -67,53 +71,5 @@ public class Game {
 
     public int[] getScore() {
         return score;
-    }
-
-    public String getNameFirstPlayer() {
-        return nameFirstPlayer;
-    }
-
-    public void setNameFirstPlayer(String nameFirstPlayer) {
-        this.nameFirstPlayer = nameFirstPlayer;
-    }
-
-    public String getNameSecondPlayer() {
-        return nameSecondPlayer;
-    }
-
-    public void setNameSecondPlayer(String nameSecondPlayer) {
-        this.nameSecondPlayer = nameSecondPlayer;
-    }
-
-    public String getSymbolFirstPlayer() {
-        return symbolFirstPlayer;
-    }
-
-    public void setSymbolFirstPlayer(String symbolFirstPlayer) {
-        this.symbolFirstPlayer = symbolFirstPlayer;
-    }
-
-    public String getSymbolSecondPlayer() {
-        return symbolSecondPlayer;
-    }
-
-    public void setSymbolSecondPlayer(String symbolSecondPlayer) {
-        this.symbolSecondPlayer = symbolSecondPlayer;
-    }
-
-    public List<Integer> getMoveFirstPlayer() {
-        return moveFirstPlayer;
-    }
-
-    public void setMoveFirstPlayer(List<Integer> moveFirstPlayer) {
-        this.moveFirstPlayer = moveFirstPlayer;
-    }
-
-    public List<Integer> getMoveSecondPlayer() {
-        return moveSecondPlayer;
-    }
-
-    public void setMoveSecondPlayer(List<Integer> moveSecondPlayer) {
-        this.moveSecondPlayer = moveSecondPlayer;
     }
 }
