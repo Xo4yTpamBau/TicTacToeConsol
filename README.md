@@ -19,4 +19,4 @@
 ### `jar -cmf manifest.mf sample.jar  -C bin .`
 ### `java -jar .\sample.jar`
 
-__Note: If there is a problem when executing the second command, then the jdk/bin path may not be specified in the PATH__
+***Note: If there is a problem when executing the second command, then the jdk/bin path may not be specified in the PATH***
