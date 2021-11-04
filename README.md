@@ -4,7 +4,7 @@
 
    When you start the program, it will give you a choice: an opponent, a nickname and a symbol that you want to play with. If you are playing against a person, then the player who chooses the symbol is randomly selected.
 
-1. Follow the link
+1. Follow the 
 [Link to the repository](https://github.com/Xo4yTpamBau/TicTacToeConsol)
 
 2. Copy the project to your computer.
