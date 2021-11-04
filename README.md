@@ -12,7 +12,7 @@
 
 3. Open the console and go to the directory with the project (cd "project path").
 
-4. Below are 3 commands, just copy and paste the commands into the console. Voila, the game is running. \[I hope you have a jdk)](https://lumpics.ru/how-to-install-jdk-in-windows-10/)
+4. Below are 3 commands, just copy and paste the commands into the console. Voila, the game is running. \ [I hope you have a jdk)](https://lumpics.ru/how-to-install-jdk-in-windows-10/)
 
 
 ### `javac -d bin -sourcepath src src\com\ticTacToe\TicTacToe.java`
