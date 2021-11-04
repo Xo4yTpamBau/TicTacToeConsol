@@ -35,9 +35,11 @@ public class PlayerService {
 
     public void pickSymbol(List<Player> players, boolean isPvp) {
         int random = isPvp ? new Random().nextInt(2) : 0;
+        Player firstPlayer = players.get(0);
+        Player secondPlayer = players.get(0);
 
         System.out.printf("Player %s select symbol X or O \n",
-                random == 0 ? players.get(0).getName() : players.get(1).getName());
+                random == 0 ? firstPlayer.getName() : secondPlayer.getName());
 
         String input = scan.next().toUpperCase(Locale.ROOT);
 
@@ -47,15 +49,15 @@ public class PlayerService {
         }
 
         if (random == 0) {
-            players.get(0).setSymbol(input);
-            players.get(1).setSymbol(input.equals("X") ? "O" : "X");
+            firstPlayer.setSymbol(input);
+            secondPlayer.setSymbol(input.equals("X") ? "O" : "X");
         } else {
-            players.get(1).setSymbol(input);
-            players.get(0).setSymbol(input.equals("X") ? "O" : "X");
+            firstPlayer.setSymbol(input);
+            secondPlayer.setSymbol(input.equals("X") ? "O" : "X");
         }
 
-        System.out.println(players.get(0).getName() + " = " + players.get(0).getSymbol() + "\n" +
-                players.get(1).getName() + " = " + players.get(1).getSymbol());
+        System.out.println(firstPlayer.getName() + " = " + firstPlayer.getSymbol() + "\n" +
+                secondPlayer.getName() + " = " + secondPlayer.getSymbol());
     }
 
     public void movePlayer(Game game, int numberPlayer) {
@@ -77,13 +79,14 @@ public class PlayerService {
     }
 
     public void moveComputer(Game game) {
+        Player computer = game.getPlayers().get(1);
         int random = new Random().nextInt(game.getAccessMove().size());
         Integer moveComputer = game.getAccessMove().get(random);
 
         game.setGameBoard(game.getGameBoard().replace(String.valueOf(moveComputer),
-               game.getPlayers().get(1).getSymbol()));
+                computer.getSymbol()));
 
-        game.getPlayers().get(1).getMove().add(moveComputer);
+        computer.getMove().add(moveComputer);
         game.getAccessMove().remove(moveComputer);
     }
 }

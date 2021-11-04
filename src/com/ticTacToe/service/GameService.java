@@ -1,6 +1,7 @@
 package com.ticTacToe.service;
 
 import com.ticTacToe.model.Game;
+import com.ticTacToe.model.Player;
 
 import java.util.*;
 
@@ -23,10 +24,12 @@ public class GameService {
     private void processGame() {
         System.out.println("Start");
         while (true) {
+            Player firstPlayer = game.getPlayers().get(0);
+            Player secondPlayer = game.getPlayers().get(1);
 
             playerService.movePlayer(game, 0);
-            if (checkWin(game.getPlayers().get(0).getMove())) {
-                System.out.println(game.getPlayers().get(0).getName() + " - won");
+            if (checkWin(firstPlayer.getMove())) {
+                System.out.println(firstPlayer.getName() + " - won");
                 game.getScore()[0]++;
                 break;
             }
@@ -42,8 +45,8 @@ public class GameService {
                 playerService.moveComputer(game);
             }
 
-            if (checkWin(game.getPlayers().get(1).getMove())) {
-                System.out.println(game.getPlayers().get(1).getName() + " - won");
+            if (checkWin(secondPlayer.getMove())) {
+                System.out.println(secondPlayer.getName() + " - won");
                 game.getScore()[1]++;
                 break;
             }
