@@ -1,4 +1,4 @@
-####Tic Tac Toe
+#### `Tic Tac Toe`
 
 Here is a simple tic-tac-toe game that works through the console (there are instructions for starting it below).
 
